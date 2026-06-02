@@ -1,30 +1,466 @@
+```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>기교현 Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gi Gyohyeon Portfolio</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.95)),
+        radial-gradient(circle at top right, #2563eb, transparent 35%),
+        radial-gradient(circle at bottom left, #14b8a6, transparent 35%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero {
+      max-width: 900px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      border-radius: 999px;
+      color: #93c5fd;
+      font-size: 14px;
+      margin-bottom: 20px;
+      background-color: rgba(15, 23, 42, 0.6);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 56px;
+      letter-spacing: -1px;
+      color: #f8fafc;
+    }
+
+    header h2 {
+      margin: 12px 0 18px;
+      font-size: 24px;
+      font-weight: 400;
+      color: #bfdbfe;
+      border: none;
+      padding: 0;
+    }
+
+    header p {
+      max-width: 720px;
+      margin: 0 auto 30px;
+      color: #cbd5e1;
+      font-size: 17px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      background-color: rgba(15, 23, 42, 0.5);
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      background-color: #2563eb;
+      border-color: #2563eb;
+      transform: translateY(-2px);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    section {
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 22px;
+      padding: 34px;
+      margin-bottom: 28px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    h2 {
+      color: #f8fafc;
+      font-size: 28px;
+      margin-top: 0;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    h3 {
+      color: #bfdbfe;
+      margin-top: 22px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #d1d5db;
+    }
+
+    ul {
+      padding-left: 22px;
+      color: #d1d5db;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    strong {
+      color: #f8fafc;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .info-card,
+    .skill-card,
+    .project-card,
+    .experience-card {
+      background-color: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .skill-card h3,
+    .experience-card h3 {
+      margin-top: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 5px 5px 0 0;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background-color: rgba(37, 99, 235, 0.16);
+      color: #bfdbfe;
+      border: 1px solid rgba(96, 165, 250, 0.25);
+      font-size: 13px;
+    }
+
+    .project-card {
+      border-left: 4px solid #2563eb;
+    }
+
+    .button {
+      display: inline-block;
+      background: linear-gradient(135deg, #2563eb, #14b8a6);
+      color: white;
+      padding: 12px 18px;
+      text-decoration: none;
+      border-radius: 10px;
+      margin-top: 8px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
+    }
+
+    .warning {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    .contact-list a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    .contact-list a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      color: #94a3b8;
+      padding: 30px 20px;
+      border-top: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 40px;
+      }
+
+      header h2 {
+        font-size: 20px;
+      }
+
+      section {
+        padding: 24px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <h1>기교현</h1>
 
-    <h2>About Me</h2>
-    <p><strong>전공 :</strong> 인공지능공학</p>
-    <p><strong>관심 분야 :</strong> Large Language Model, Natural Language Processing, Generative AI, AI Service Development</p>
-    <p><strong>진로 목표 :</strong> 사용자의 말을 이해하고 필요한 작업을 도와주는 개인 맞춤형 AI Assistant를 개발하는 것이 목표입니다.</p>
-    <p><strong>현재 학습 중인 기술 :</strong> Python, C++, Machine Learning, Deep Learning, Data Analysis, Git/GitHub</p>
-    <p><strong>AI 분야에서의 관심 주제 :</strong> 사용자의 명령을 이해하고 일정 관리, 정보 검색, 자동화 작업을 도와주는 개인 맞춤형 AI Assistant 기술에 관심이 있습니다.</p>
+  <header>
+    <div class="hero">
+      <span class="badge">AI Portfolio · GitHub Pages</span>
+      <h1>Gi Gyohyeon</h1>
+      <h2>Artificial Intelligence Engineering Student</h2>
 
-    <h2>Education</h2>
-    <p><strong>학교명 :</strong> 조선대학교</p>
-    <p><strong>학과 :</strong> 인공지능공학과</p>
-    <p><strong>학년 :</strong> 2학년</p>
-    <p><strong>주요 수강 과목 :</strong> 객체지향프로그래밍, 기계학습, 오픈소스SW개론, 데이터구조</p>
+      <nav>
+        <a href="#about">About Me</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+        <a href="#career">Career Goal</a>
+      </nav>
+    </div>
+  </header>
 
-    <h2>Skills</h2>
-    <p><strong>Programming :</strong> Python (Basic), C/C++ (Basic)</p>
-    <p><strong>AI / ML :</strong> scikit-learn (Basic), Machine Learning (Basic)</p>
-    <p><strong>Web :</strong> HTML (Basic), CSS (Basic), GitHub Pages (Basic)</p>
-    <p><strong>Tools :</strong> Git (Basic), GitHub (Basic), VS Code (Basic), JupyterLab (Basic)</p>
+  <main>
+
+    <section id="about">
+      <h2>1. 자기소개 / About Me</h2>
+
+      <p>
+        인공지능공학을 전공하며 Large Language Model, Natural Language Processing,
+        Generative AI, AI Service Development 분야에 관심을 가지고 있습니다.
+        현재 Python, C/C++, Machine Learning, Data Analysis, Git/GitHub 등을 학습하고 있으며,
+        사용자의 말을 이해하고 필요한 작업을 도와주는 개인 맞춤형 AI Assistant 기술에 관심이 있습니다.
+      </p>
+
+      <div class="grid">
+        <div class="info-card">
+          <strong>전공</strong>
+          <p>인공지능공학</p>
+        </div>
+
+        <div class="info-card">
+          <strong>관심 분야</strong>
+          <p>LLM, NLP, Generative AI, AI Service Development</p>
+        </div>
+
+        <div class="info-card">
+          <strong>진로 목표</strong>
+          <p>개인 맞춤형 AI Assistant 개발</p>
+        </div>
+
+        <div class="info-card">
+          <strong>현재 학습 중인 기술</strong>
+          <p>Python, C/C++, Machine Learning, Deep Learning, Data Analysis, Git/GitHub</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>2. Education</h2>
+
+      <ul>
+        <li><strong>School:</strong> Chosun University</li>
+        <li><strong>Department:</strong> Department of Artificial Intelligence Engineering</li>
+        <li><strong>Year:</strong> 2nd Year</li>
+        <li><strong>Period:</strong> 2022 ~ Present</li>
+        <li><strong>Relevant Coursework:</strong> Object-Oriented Programming, Machine Learning, Open Source Software, Data Structures</li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>3. Skills</h2>
+
+      <div class="grid">
+        <div class="skill-card">
+          <h3>Programming</h3>
+          <span class="tag">Python · Basic</span>
+          <span class="tag">C/C++ · Basic</span>
+        </div>
+
+        <div class="skill-card">
+          <h3>AI / ML</h3>
+          <span class="tag">Machine Learning · Basic</span>
+          <span class="tag">scikit-learn · Basic</span>
+          <span class="tag">Data Analysis · Basic</span>
+        </div>
+
+        <div class="skill-card">
+          <h3>Web</h3>
+          <span class="tag">HTML · Basic</span>
+          <span class="tag">CSS · Basic</span>
+          <span class="tag">GitHub Pages · Basic</span>
+        </div>
+
+        <div class="skill-card">
+          <h3>Tools</h3>
+          <span class="tag">Git · Basic</span>
+          <span class="tag">GitHub · Basic</span>
+          <span class="tag">Sourcetree · Basic</span>
+          <span class="tag">JupyterLab · Basic</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>4. Projects</h2>
+
+      <article class="project-card">
+        <h3>JARVIS: Personal AI Assistant Project</h3>
+
+        <p>
+          <strong>Summary:</strong>
+          사용자의 명령을 이해하고 일정 관리, 정보 검색, 간단한 자동화 작업을 도와주는
+          개인 맞춤형 AI Assistant를 개발하는 것을 목표로 하는 프로젝트입니다.
+        </p>
+
+        <p>
+          <strong>Period:</strong>
+          2026.06 ~ 진행 예정
+        </p>
+
+        <p>
+          <strong>Tech Stack:</strong>
+          Python, Natural Language Processing, Large Language Model, API, Git/GitHub
+        </p>
+
+        <p>
+          <strong>Role:</strong>
+          프로젝트 기획, 기능 설계, Python 기반 기능 구현, 사용자 명령 처리 흐름 설계
+        </p>
+
+        <p><strong>Key Features:</strong></p>
+        <ul>
+          <li>사용자의 자연어 명령을 이해하고 필요한 작업을 분류</li>
+          <li>일정 관리 및 할 일 정리 기능 설계</li>
+          <li>질문에 필요한 정보를 검색하고 요약해서 제공</li>
+          <li>반복적인 작업을 줄이기 위한 간단한 자동화 기능</li>
+          <li>사용자에게 맞는 응답을 제공하는 개인 맞춤형 Assistant 구조 설계</li>
+        </ul>
+
+        <p>
+          <strong>Results:</strong>
+          현재는 프로젝트 기획 단계이며, Python과 NLP 기초 학습을 바탕으로
+          간단한 명령 처리 기능부터 구현할 계획입니다.
+          이후 일정 관리, 정보 검색, 자동화 기능을 단계적으로 추가할 예정입니다.
+        </p>
+
+      </article>
+    </section>
+
+    <section id="experience">
+      <h2>5. Experience</h2>
+
+      <div class="grid">
+        <div class="experience-card">
+          <h3>Personal Development Activity</h3>
+          <p>
+            개인 맞춤형 AI Assistant 개발을 목표로 JARVIS 프로젝트를 기획하고 있으며,
+            Python, AI 기초 기술, GitHub Pages를 활용한 개인 개발 경험을 쌓고 있습니다.
+          </p>
+        </div>
+
+        <div class="experience-card">
+          <h3>Open Source Contribution Practice</h3>
+          <p>
+            GitHub의 AI 및 CS 관련 오픈소스 프로젝트를 참고하며
+            README 작성 방식, 프로젝트 구조, 이슈 관리 방법을 학습하고 있습니다.
+          </p>
+        </div>
+
+        <div class="experience-card">
+          <h3>Git/GitHub Version Control Practice</h3>
+          <p>
+            branch, merge, rebase, stash, conflict 해결 과정을 실습하며
+            협업 개발에 필요한 기본적인 버전 관리 방법을 익혔습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <h2>6. CV / Resume PDF 링크</h2>
+
+      <p>
+        아래 링크를 통해 이력서 PDF를 확인할 수 있습니다.
+      </p>
+
+      <a class="button" href="./resume.pdf" target="_blank">Download My Resume</a>
+
+    </section>
+
+    <section id="contact">
+      <h2>7. Contact</h2>
+
+      <ul class="contact-list">
+        <li><strong>Email:</strong> kirikouu00@gmail.com</li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/ggh0000" target="_blank">https://github.com/ggh0000</a></li>
+      </ul>
+    </section>
+
+    <section id="career">
+      <h2>8. Career Goal / Future Plan</h2>
+
+      <p>
+        앞으로는 Python과 Machine Learning 기초를 더 탄탄하게 학습하고,
+        Natural Language Processing과 Large Language Model 기술을 활용하여
+        사용자의 명령을 이해하고 필요한 작업을 도와주는 개인 맞춤형 AI Assistant를 개발하고 싶습니다.
+      </p>
+
+      <p>
+        특히 일정 관리, 정보 검색, 자동화 기능을 하나의 서비스로 연결하는 AI Assistant 개발에 관심이 있으며,
+        JARVIS 프로젝트를 통해 AI 서비스 개발 역량을 단계적으로 키워나갈 계획입니다.
+      </p>
+
+      <ul>
+        <li>AI Developer</li>
+        <li>AI Service Developer</li>
+        <li>Natural Language Processing Engineer</li>
+        <li>Personal AI Assistant Developer</li>
+      </ul>
+    </section>
+
+  </main>
+
 </body>
 </html>
+```
